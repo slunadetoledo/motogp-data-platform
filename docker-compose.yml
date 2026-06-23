@@ -1,0 +1,27 @@
+services:
+
+  app:
+    build: .
+    container_name: motogp_app
+    volumes:
+      - .:/app
+    working_dir: /app
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    command: tail -f /dev/null
+
+  postgres:
+    image: postgres:16
+    container_name: motogp_postgres
+    environment:
+      POSTGRES_DB: motogp
+      POSTGRES_USER: motogp_user
+      POSTGRES_PASSWORD: motogp_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d
+
+volumes:
+  postgres_data:
