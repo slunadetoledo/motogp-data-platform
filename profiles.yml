@@ -1,0 +1,12 @@
+motogp_data_platform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'postgres') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'motogp') }}"
+      schema: public
+      user: "{{ env_var('POSTGRES_USER', 'motogp_user') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'motogp_pass') }}"
+      threads: 4

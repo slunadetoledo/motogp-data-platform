@@ -2,155 +2,169 @@ CREATE TABLE IF NOT EXISTS raw.motogp_api_raw (
     id BIGSERIAL PRIMARY KEY,
     endpoint VARCHAR(255) NOT NULL,
     extraction_date TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    request_params JSONB NOT NULL DEFAULT '{}'::jsonb,
     payload JSONB NOT NULL
 );
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_seasons AS
-SELECT
-    season ->> 'id' AS season_id,
-    (season ->> 'year')::INTEGER AS season_year,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) season
-WHERE r.endpoint = 'results/seasons';
+ALTER TABLE raw.motogp_api_raw
+ADD COLUMN IF NOT EXISTS request_params JSONB NOT NULL DEFAULT '{}'::jsonb;
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_categories AS
-SELECT
-    category ->> 'id' AS category_id,
-    category ->> 'name' AS category_name,
-    category ->> 'legacy_id' AS legacy_id,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) category
-WHERE r.endpoint = 'results/categories';
+DROP VIEW IF EXISTS bronze.vw_motogp_standings;
+DROP VIEW IF EXISTS bronze.vw_motogp_session_classification;
+DROP VIEW IF EXISTS bronze.vw_motogp_grid;
+DROP VIEW IF EXISTS bronze.vw_motogp_entry_list;
+DROP VIEW IF EXISTS bronze.vw_motogp_rider_stats;
+DROP VIEW IF EXISTS bronze.vw_motogp_rider_details;
+DROP VIEW IF EXISTS bronze.vw_motogp_riders;
+DROP VIEW IF EXISTS bronze.vw_motogp_sessions;
+DROP VIEW IF EXISTS bronze.vw_motogp_events;
+DROP VIEW IF EXISTS bronze.vw_motogp_categories;
+DROP VIEW IF EXISTS bronze.vw_motogp_seasons;
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_events AS
-SELECT
-    event ->> 'id' AS event_id,
-    event ->> 'name' AS event_name,
-    event ->> 'official_name' AS official_name,
-    event ->> 'country' AS country,
-    event ->> 'circuit' AS circuit,
-    event ->> 'start_date' AS start_date,
-    event ->> 'end_date' AS end_date,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) event
-WHERE r.endpoint = 'results/events';
+CREATE TABLE IF NOT EXISTS bronze.motogp_seasons (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    season_id TEXT,
+    season_year INTEGER,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_sessions AS
-SELECT
-    session ->> 'id' AS session_id,
-    session ->> 'name' AS session_name,
-    session ->> 'type' AS session_type,
-    session ->> 'date' AS session_date,
-    session ->> 'event_id' AS event_id,
-    session ->> 'category_id' AS category_id,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) session
-WHERE r.endpoint = 'results/sessions';
+CREATE TABLE IF NOT EXISTS bronze.motogp_categories (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    category_id TEXT,
+    category_name TEXT,
+    legacy_id TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_riders AS
-SELECT
-    rider ->> 'id' AS rider_id,
-    rider ->> 'legacy_id' AS legacy_id,
-    rider ->> 'name' AS rider_name,
-    rider ->> 'surname' AS rider_surname,
-    rider ->> 'nickname' AS nickname,
-    rider ->> 'country' AS country,
-    rider ->> 'birth_date' AS birth_date,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) rider
-WHERE r.endpoint = 'riders';
+CREATE TABLE IF NOT EXISTS bronze.motogp_events (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    event_id TEXT,
+    event_name TEXT,
+    official_name TEXT,
+    country TEXT,
+    circuit TEXT,
+    start_date TEXT,
+    end_date TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_rider_details AS
-SELECT
-    detail ->> 'id' AS rider_id,
-    detail ->> 'legacy_id' AS legacy_id,
-    detail ->> 'name' AS rider_name,
-    detail ->> 'surname' AS rider_surname,
-    detail ->> 'number' AS rider_number,
-    detail ->> 'country' AS country,
-    detail ->> 'birth_date' AS birth_date,
-    detail ->> 'height' AS height,
-    detail ->> 'weight' AS weight,
-    detail ->> 'biography' AS biography,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) detail
-WHERE r.endpoint LIKE 'riders/%'
-  AND r.endpoint NOT LIKE '%/stats';
+CREATE TABLE IF NOT EXISTS bronze.motogp_sessions (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    session_id TEXT,
+    session_name TEXT,
+    session_type TEXT,
+    session_date TEXT,
+    event_id TEXT,
+    category_id TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_rider_stats AS
-SELECT
-    stats ->> 'rider_id' AS rider_id,
-    stats ->> 'legacy_id' AS legacy_id,
-    (stats ->> 'wins')::INTEGER AS wins,
-    (stats ->> 'podiums')::INTEGER AS podiums,
-    (stats ->> 'poles')::INTEGER AS poles,
-    (stats ->> 'fastest_laps')::INTEGER AS fastest_laps,
-    (stats ->> 'world_championships')::INTEGER AS world_championships,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) stats
-WHERE r.endpoint LIKE 'riders/%/stats';
+CREATE TABLE IF NOT EXISTS bronze.motogp_riders (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    rider_id TEXT,
+    legacy_id TEXT,
+    rider_name TEXT,
+    rider_surname TEXT,
+    nickname TEXT,
+    country TEXT,
+    birth_date TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_entry_list AS
-SELECT
-    entry ->> 'event_id' AS event_id,
-    entry ->> 'category_id' AS category_id,
-    entry ->> 'rider_id' AS rider_id,
-    entry ->> 'rider_name' AS rider_name,
-    entry ->> 'team_name' AS team_name,
-    entry ->> 'bike' AS bike,
-    entry ->> 'number' AS rider_number,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) entry
-WHERE r.endpoint LIKE 'event/%/entry%';
+CREATE TABLE IF NOT EXISTS bronze.motogp_rider_details (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    rider_id TEXT,
+    legacy_id TEXT,
+    rider_name TEXT,
+    rider_surname TEXT,
+    rider_number TEXT,
+    country TEXT,
+    birth_date TEXT,
+    height TEXT,
+    weight TEXT,
+    biography TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_grid AS
-SELECT
-    grid_row ->> 'event_id' AS event_id,
-    grid_row ->> 'category_id' AS category_id,
-    grid_row ->> 'rider_id' AS rider_id,
-    (grid_row ->> 'position')::INTEGER AS grid_position,
-    grid_row ->> 'time' AS lap_time,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) grid_row
-WHERE r.endpoint LIKE 'results/event/%/category/%/grid';
+CREATE TABLE IF NOT EXISTS bronze.motogp_rider_stats (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    rider_id TEXT,
+    legacy_id TEXT,
+    season_year INTEGER,
+    category_name TEXT,
+    constructor_name TEXT,
+    starts INTEGER,
+    wins INTEGER,
+    second_positions INTEGER,
+    third_positions INTEGER,
+    podiums INTEGER,
+    poles INTEGER,
+    points NUMERIC,
+    championship_position INTEGER,
+    fastest_laps INTEGER,
+    world_championships INTEGER,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_session_classification AS
-SELECT
-    classification ->> 'session_id' AS session_id,
-    classification ->> 'rider_id' AS rider_id,
-    classification ->> 'rider_name' AS rider_name,
-    classification ->> 'team_name' AS team_name,
-    (classification ->> 'position')::INTEGER AS position,
-    (classification ->> 'points')::INTEGER AS points,
-    (classification ->> 'laps')::INTEGER AS laps,
-    classification ->> 'time' AS total_time,
-    classification ->> 'gap' AS gap,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) classification
-WHERE r.endpoint LIKE 'results/session/%/classification';
+ALTER TABLE bronze.motogp_rider_stats
+ADD COLUMN IF NOT EXISTS season_year INTEGER,
+ADD COLUMN IF NOT EXISTS category_name TEXT,
+ADD COLUMN IF NOT EXISTS constructor_name TEXT,
+ADD COLUMN IF NOT EXISTS starts INTEGER,
+ADD COLUMN IF NOT EXISTS second_positions INTEGER,
+ADD COLUMN IF NOT EXISTS third_positions INTEGER,
+ADD COLUMN IF NOT EXISTS points NUMERIC,
+ADD COLUMN IF NOT EXISTS championship_position INTEGER;
 
-CREATE OR REPLACE VIEW bronze.vw_motogp_standings AS
-SELECT
-    standing ->> 'season_id' AS season_id,
-    standing ->> 'category_id' AS category_id,
-    standing ->> 'rider_id' AS rider_id,
-    standing ->> 'rider_name' AS rider_name,
-    standing ->> 'team_name' AS team_name,
-    (standing ->> 'position')::INTEGER AS position,
-    (standing ->> 'points')::INTEGER AS points,
-    (standing ->> 'wins')::INTEGER AS wins,
-    (standing ->> 'podiums')::INTEGER AS podiums,
-    r.extraction_date
-FROM raw.motogp_api_raw r
-CROSS JOIN LATERAL jsonb_array_elements(r.payload) standing
-WHERE r.endpoint = 'results/standings';
+ALTER TABLE bronze.motogp_rider_stats
+ALTER COLUMN points TYPE NUMERIC;
+
+CREATE TABLE IF NOT EXISTS bronze.motogp_entry_list (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    event_id TEXT,
+    category_id TEXT,
+    rider_id TEXT,
+    rider_name TEXT,
+    team_name TEXT,
+    bike TEXT,
+    rider_number TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bronze.motogp_grid (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    event_id TEXT,
+    category_id TEXT,
+    rider_id TEXT,
+    grid_position INTEGER,
+    lap_time TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bronze.motogp_session_classification (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    session_id TEXT,
+    rider_id TEXT,
+    rider_name TEXT,
+    team_name TEXT,
+    position INTEGER,
+    points INTEGER,
+    laps INTEGER,
+    total_time TEXT,
+    gap TEXT,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bronze.motogp_standings (
+    raw_id BIGINT REFERENCES raw.motogp_api_raw(id),
+    season_id TEXT,
+    category_id TEXT,
+    rider_id TEXT,
+    rider_name TEXT,
+    team_name TEXT,
+    position INTEGER,
+    points INTEGER,
+    wins INTEGER,
+    podiums INTEGER,
+    extraction_date TIMESTAMPTZ NOT NULL
+);
