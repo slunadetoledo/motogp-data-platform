@@ -1,0 +1,22 @@
+name: motogp_data_platform
+version: "1.0.0"
+config-version: 2
+
+profile: motogp_data_platform
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  motogp_data_platform:
+    staging:
+      +materialized: view
+      +schema: silver
+    marts:
+      +materialized: table
+      +schema: gold

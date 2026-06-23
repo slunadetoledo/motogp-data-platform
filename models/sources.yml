@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: motogp_api_raw
+
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: motogp_categories
+      - name: motogp_events
+      - name: motogp_grid
+      - name: motogp_rider_details
+      - name: motogp_rider_stats
+      - name: motogp_riders
+      - name: motogp_seasons
+      - name: motogp_session_classification
+      - name: motogp_sessions
+      - name: motogp_standings
