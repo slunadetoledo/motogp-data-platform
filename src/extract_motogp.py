@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime, timezone
+import argparse
 import json
 import os
 
@@ -9,6 +10,36 @@ from sqlalchemy import create_engine, text
 
 BASE_URL = "https://api.pulselive.motogp.com/motogp/v1"
 RAW_PATH = Path("data/raw/motogp")
+DEFAULT_YEAR = 2024  # Sin parametros, el extractor carga la temporada 2024.
+DEFAULT_RESOURCES = (
+    "riders",
+    "result_categories",
+    "result_events",
+    "result_standings",
+    "result_sessions",
+    "result_grid",
+    "result_classification",
+)
+RESOURCE_ALIASES = {
+    "riders": "riders",
+    "result_categories": "result_categories",
+    "result_category": "result_categories",
+    "categories": "result_categories",
+    "result_events": "result_events",
+    "result_event": "result_events",
+    "events": "result_events",
+    "result_standings": "result_standings",
+    "result_standing": "result_standings",
+    "standings": "result_standings",
+    "result_sessions": "result_sessions",
+    "result_session": "result_sessions",
+    "sessions": "result_sessions",
+    "result_grid": "result_grid",
+    "result_frid": "result_grid",
+    "grid": "result_grid",
+    "result_classification": "result_classification",
+    "classification": "result_classification",
+}
 
 BRONZE_LOAD_SQL = {
     "results/seasons": """
@@ -531,19 +562,19 @@ def get_season_uuid(seasons, year: int) -> str:
     raise ValueError(f"No se encontró season UUID para el año {year}")
 
 
-def main() -> None:
-    year = 2024
+def get_all_seasons(seasons) -> list[tuple[int, str]]:
+    season_ids = []
+    for season in seasons:
+        year = season.get("year")
+        season_uuid = season.get("id")
+        if year is None or season_uuid is None:
+            continue
+        season_ids.append((int(year), season_uuid))
 
-    seasons = extract_endpoint("results/seasons")
-    season_uuid = get_season_uuid(seasons, year)
-    print(f"Season UUID {year}: {season_uuid}")
+    return sorted(season_ids)
 
-    categories = extract_endpoint(
-        "results/categories",
-        params={"seasonUuid": season_uuid},
-        file_name=f"results_categories_{year}",
-    )
 
+def load_riders() -> None:
     riders = extract_endpoint("riders")
 
     for rider in riders:
@@ -560,15 +591,34 @@ def main() -> None:
             required=False,
         )
 
-    events = extract_endpoint(
+
+def load_categories(year: int, season_uuid: str, required: bool = True):
+    return extract_endpoint(
+        "results/categories",
+        params={"seasonUuid": season_uuid},
+        file_name=f"results_categories_{year}",
+        required=required,
+    )
+
+
+def load_events(year: int, season_uuid: str, required: bool = True):
+    return extract_endpoint(
         "results/events",
         params={
             "seasonUuid": season_uuid,
             "isFinished": "true",
         },
         file_name=f"results_events_{year}",
+        required=required,
     )
 
+
+def load_standings(
+    year: int,
+    season_uuid: str,
+    categories,
+    required: bool = True,
+) -> None:
     for category in categories:
         category_uuid = category["id"]
         category_name = category.get("name", category_uuid)
@@ -580,8 +630,16 @@ def main() -> None:
                 "categoryUuid": category_uuid,
             },
             file_name=f"results_standings_{year}_{category_uuid}",
+            required=required,
         )
 
+
+def load_sessions(
+    events,
+    categories,
+    required: bool = False,
+) -> list[dict]:
+    loaded_sessions = []
     for event in events:
         event_uuid = event["id"]
         event_name = event.get("short_name", event_uuid)
@@ -589,15 +647,193 @@ def main() -> None:
             category_uuid = category["id"]
             category_name = category.get("name", category_uuid)
             print(f"Loading sessions for {event_name} / {category_name}")
-            extract_endpoint(
+            sessions = extract_endpoint(
                 "results/sessions",
                 params={
                     "eventUuid": event_uuid,
                     "categoryUuid": category_uuid,
                 },
                 file_name=f"results_sessions_{event_uuid}_{category_uuid}",
+                required=required,
+            )
+            if sessions:
+                loaded_sessions.extend(sessions)
+
+    return loaded_sessions
+
+
+def load_grid(events, categories) -> None:
+    for event in events:
+        event_uuid = event["id"]
+        event_name = event.get("short_name", event_uuid)
+        for category in categories:
+            category_uuid = category["id"]
+            category_name = category.get("name", category_uuid)
+            print(f"Loading grid for {event_name} / {category_name}")
+            extract_endpoint(
+                f"results/event/{event_uuid}/category/{category_uuid}/grid",
+                file_name=f"results_grid_{event_uuid}_{category_uuid}",
                 required=False,
             )
+
+
+def load_classification(sessions) -> None:
+    for session in sessions:
+        session_uuid = session.get("id")
+        if session_uuid is None:
+            continue
+
+        session_name = session.get("name", session_uuid)
+        print(f"Loading classification for {session_name}")
+        extract_endpoint(
+            f"results/session/{session_uuid}/classification",
+            file_name=f"results_classification_{session_uuid}",
+            required=False,
+        )
+
+
+def load_season(
+    year: int,
+    season_uuid: str,
+    resources: set[str],
+    required: bool = True,
+) -> None:
+    print(f"Loading season {year}")
+    print(f"Season UUID {year}: {season_uuid}")
+
+    needs_categories = bool(
+        resources
+        & {
+            "result_categories",
+            "result_standings",
+            "result_sessions",
+            "result_grid",
+            "result_classification",
+        }
+    )
+    needs_events = bool(
+        resources
+        & {
+            "result_events",
+            "result_sessions",
+            "result_grid",
+            "result_classification",
+        }
+    )
+
+    categories = (
+        load_categories(year, season_uuid, required=required)
+        if needs_categories
+        else None
+    )
+    if needs_categories and categories is None:
+        print(f"Skipping season {year}: categories not available")
+        return
+
+    events = (
+        load_events(year, season_uuid, required=required)
+        if needs_events
+        else None
+    )
+    if needs_events and events is None:
+        print(f"Skipping season {year}: events not available")
+        return
+
+    if "result_standings" in resources:
+        load_standings(year, season_uuid, categories, required=required)
+
+    sessions = []
+    if "result_sessions" in resources or "result_classification" in resources:
+        sessions = load_sessions(events, categories)
+
+    if "result_grid" in resources:
+        load_grid(events, categories)
+
+    if "result_classification" in resources:
+        load_classification(sessions)
+
+
+def parse_resources(raw_resources: str) -> set[str]:
+    if raw_resources == "all":
+        return set(DEFAULT_RESOURCES)
+
+    resources = set()
+    for resource in raw_resources.split(","):
+        resource_name = resource.strip().lower()
+        if not resource_name:
+            continue
+
+        try:
+            resources.add(RESOURCE_ALIASES[resource_name])
+        except KeyError as exc:
+            allowed_resources = ", ".join(DEFAULT_RESOURCES)
+            raise ValueError(
+                f"Recurso no soportado: {resource_name}. "
+                f"Recursos soportados: {allowed_resources}"
+            ) from exc
+
+    return resources
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Carga datos de MotoGP en raw/bronze.",
+    )
+    parser.add_argument(
+        "season",
+        nargs="?",
+        default=str(DEFAULT_YEAR),
+        help=(
+            f"Año a cargar o 'all' para cargar todas las temporadas. "
+            f"Sin parametro carga {DEFAULT_YEAR}."
+        ),
+    )
+    parser.add_argument(
+        "--only",
+        default="all",
+        help=(
+            "Recursos a cargar separados por comas. Opciones: "
+            "riders, result_categories, result_events, result_standings, "
+            "result_sessions, result_grid, result_classification. "
+            "Por defecto carga todos."
+        ),
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    season_arg = args.season.lower()
+    resources = parse_resources(args.only.lower())
+
+    seasons = extract_endpoint("results/seasons")
+
+    if "riders" in resources:
+        load_riders()
+
+    season_resources = resources - {"riders"}
+    if not season_resources:
+        print("Finished successfully")
+        return
+
+    if season_arg == "all":
+        for year, season_uuid in get_all_seasons(seasons):
+            load_season(
+                year,
+                season_uuid,
+                resources=season_resources,
+                required=False,
+            )
+    else:
+        try:
+            year = int(args.season)
+        except ValueError as exc:
+            raise ValueError(
+                "El parametro debe ser un año, por ejemplo 2024, o 'all'"
+            ) from exc
+
+        season_uuid = get_season_uuid(seasons, year)
+        load_season(year, season_uuid, resources=season_resources)
 
     print("Finished successfully")
 
