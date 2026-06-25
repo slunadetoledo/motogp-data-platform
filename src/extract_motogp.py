@@ -168,7 +168,7 @@ BRONZE_LOAD_SQL = {
             standing -> 'rider' ->> 'full_name',
             standing -> 'team' ->> 'name',
             NULLIF(standing ->> 'position', '')::INTEGER,
-            NULLIF(standing ->> 'points', '')::INTEGER,
+            NULLIF(standing ->> 'points', '')::NUMERIC,
             NULLIF(standing ->> 'race_wins', '')::INTEGER,
             NULLIF(standing ->> 'podiums', '')::INTEGER,
             r.extraction_date

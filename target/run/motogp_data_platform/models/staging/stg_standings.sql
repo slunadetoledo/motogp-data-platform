@@ -28,7 +28,7 @@ ranked as (
         standing -> 'rider' ->> 'full_name' as rider_name,
         standing -> 'team' ->> 'name' as team_name,
         nullif(standing ->> 'position', '')::integer as position,
-        nullif(standing ->> 'points', '')::integer as points,
+        nullif(standing ->> 'points', '')::numeric as points,
         nullif(standing ->> 'race_wins', '')::integer as wins,
         nullif(standing ->> 'podiums', '')::integer as podiums,
         extraction_date,

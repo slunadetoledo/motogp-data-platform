@@ -163,8 +163,11 @@ CREATE TABLE IF NOT EXISTS bronze.motogp_standings (
     rider_name TEXT,
     team_name TEXT,
     position INTEGER,
-    points INTEGER,
+    points NUMERIC,
     wins INTEGER,
     podiums INTEGER,
     extraction_date TIMESTAMPTZ NOT NULL
 );
+
+ALTER TABLE bronze.motogp_standings
+ALTER COLUMN points TYPE NUMERIC;
