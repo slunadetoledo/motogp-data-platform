@@ -20140,3 +20140,1585 @@ drop table if exists "motogp"."gold"."fact_session_classification__dbt_backup" c
 [0m15:51:52.886874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbc6a87c1d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbc69df7260>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dbc6acd99a0>]}
 [0m15:51:52.887170 [debug] [MainThread]: Flushing usage events
 [0m15:51:53.476830 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:55:04.491138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774174927980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77417670afc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774174056000>]}
+
+
+============================== 16:55:04.498813 | a96f6be0-f5dd-4116-a219-a855a65b89fb ==============================
+[0m16:55:04.498813 [info ] [MainThread]: Running with dbt=1.12.0-b3
+[0m16:55:04.499284 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'debug': 'False', 'log_format': 'default', 'target_path': 'None', 'indirect_selection': 'eager', 'introspect': 'True', 'maximum_seed_size_mib': '1', 'use_colors': 'True', 'log_path': '/app/logs', 'empty': 'False', 'invocation_command': 'dbt run --profiles-dir .', 'warn_error': 'None', 'no_print': 'None', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'quiet': 'False', 'cache_selected_only': 'False', 'version_check': 'True', 'profiles_dir': '.', 'partial_parse': 'True', 'log_cache_events': 'False', 'static_parser': 'True'}
+[0m16:55:04.670007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774172978410>]}
+[0m16:55:04.727370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774173e758b0>]}
+[0m16:55:04.728536 [info ] [MainThread]: Registered adapter: postgres=1.10.2
+[0m16:55:04.844446 [debug] [MainThread]: checksum: 0ba89391508d6d09af79d99dd317a26efc912daa9952baef7983608db2e9966c, vars: {}, profile: motogp_data_platform, target: dev, version: 1.12.0b3
+[0m16:55:04.994816 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:55:04.995125 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m16:55:04.995296 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:55:05.038667 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77417258b560>]}
+[0m16:55:05.184368 [debug] [MainThread]: Wrote artifact WritableManifest to /app/target/manifest.json
+[0m16:55:05.189208 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/target/semantic_manifest.json
+[0m16:55:05.211318 [debug] [MainThread]: Wrote artifact OsiDocument to /app/target/osi_document.json
+[0m16:55:05.232461 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77417113c6e0>]}
+[0m16:55:05.232896 [info ] [MainThread]: Found 20 models, 28 data tests, 11 sources, 476 macros
+[0m16:55:05.233164 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77417195e690>]}
+[0m16:55:05.235706 [info ] [MainThread]: 
+[0m16:55:05.236015 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:55:05.236238 [info ] [MainThread]: 
+[0m16:55:05.236714 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:55:05.241351 [debug] [ThreadPool]: Acquiring new postgres connection 'list_motogp'
+[0m16:55:05.249444 [debug] [ThreadPool]: Acquiring new postgres connection 'list_motogp'
+[0m16:55:05.310440 [debug] [ThreadPool]: Using postgres connection "list_motogp"
+[0m16:55:05.310876 [debug] [ThreadPool]: Using postgres connection "list_motogp"
+[0m16:55:05.311282 [debug] [ThreadPool]: On list_motogp: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "connection_name": "list_motogp"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:55:05.311693 [debug] [ThreadPool]: On list_motogp: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "connection_name": "list_motogp"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:55:05.312141 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:55:05.312488 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:55:05.324424 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.012 seconds
+[0m16:55:05.324889 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.013 seconds
+[0m16:55:05.326355 [debug] [ThreadPool]: On list_motogp: Close
+[0m16:55:05.328015 [debug] [ThreadPool]: On list_motogp: Close
+[0m16:55:05.330430 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_motogp, now list_motogp_gold)
+[0m16:55:05.330985 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_motogp, now list_motogp_silver)
+[0m16:55:05.336667 [debug] [ThreadPool]: Using postgres connection "list_motogp_gold"
+[0m16:55:05.339325 [debug] [ThreadPool]: Using postgres connection "list_motogp_silver"
+[0m16:55:05.339679 [debug] [ThreadPool]: On list_motogp_gold: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "connection_name": "list_motogp_gold"} */
+select
+      'motogp' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'motogp' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'motogp' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+  
+[0m16:55:05.340089 [debug] [ThreadPool]: On list_motogp_silver: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "connection_name": "list_motogp_silver"} */
+select
+      'motogp' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'silver'
+    union all
+    select
+      'motogp' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'silver'
+    union all
+    select
+      'motogp' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'silver'
+  
+[0m16:55:05.340440 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:55:05.340892 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:55:05.356000 [debug] [ThreadPool]: SQL status: SELECT 11 in 0.015 seconds
+[0m16:55:05.356452 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.016 seconds
+[0m16:55:05.357876 [debug] [ThreadPool]: On list_motogp_silver: ROLLBACK
+[0m16:55:05.359074 [debug] [ThreadPool]: On list_motogp_gold: ROLLBACK
+[0m16:55:05.359669 [debug] [ThreadPool]: On list_motogp_silver: Close
+[0m16:55:05.359945 [debug] [ThreadPool]: On list_motogp_gold: Close
+[0m16:55:05.368299 [debug] [MainThread]: Using postgres connection "master"
+[0m16:55:05.368672 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m16:55:05.368926 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:55:05.382509 [debug] [MainThread]: SQL status: SELECT 13 in 0.013 seconds
+[0m16:55:05.384792 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774172526900>]}
+[0m16:55:05.385132 [debug] [MainThread]: On master: ROLLBACK
+[0m16:55:05.385651 [debug] [MainThread]: On master: COMMIT
+[0m16:55:05.385921 [debug] [MainThread]: Using postgres connection "master"
+[0m16:55:05.386118 [debug] [MainThread]: On master: COMMIT
+[0m16:55:05.386613 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:55:05.386888 [debug] [MainThread]: On master: Close
+[0m16:55:05.392434 [debug] [Thread-1 (]: Began running node model.motogp_data_platform.stg_categories
+[0m16:55:05.393030 [debug] [Thread-2 (]: Began running node model.motogp_data_platform.stg_events
+[0m16:55:05.393431 [info ] [Thread-1 (]: 1 of 20 START sql view model silver.stg_categories ............................. [RUN]
+[0m16:55:05.393948 [debug] [Thread-3 (]: Began running node model.motogp_data_platform.stg_grid
+[0m16:55:05.394462 [debug] [Thread-4 (]: Began running node model.motogp_data_platform.stg_rider_details
+[0m16:55:05.394865 [info ] [Thread-2 (]: 2 of 20 START sql view model silver.stg_events ................................. [RUN]
+[0m16:55:05.395299 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_motogp_gold, now model.motogp_data_platform.stg_categories)
+[0m16:55:05.395957 [info ] [Thread-3 (]: 3 of 20 START sql view model silver.stg_grid ................................... [RUN]
+[0m16:55:05.396404 [info ] [Thread-4 (]: 4 of 20 START sql view model silver.stg_rider_details .......................... [RUN]
+[0m16:55:05.396883 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_motogp_silver, now model.motogp_data_platform.stg_events)
+[0m16:55:05.397227 [debug] [Thread-1 (]: Began compiling node model.motogp_data_platform.stg_categories
+[0m16:55:05.397634 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.motogp_data_platform.stg_grid'
+[0m16:55:05.397975 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.motogp_data_platform.stg_rider_details'
+[0m16:55:05.398269 [debug] [Thread-2 (]: Began compiling node model.motogp_data_platform.stg_events
+[0m16:55:05.406632 [debug] [Thread-1 (]: Writing injected SQL for node "model.motogp_data_platform.stg_categories"
+[0m16:55:05.407056 [debug] [Thread-3 (]: Began compiling node model.motogp_data_platform.stg_grid
+[0m16:55:05.407405 [debug] [Thread-4 (]: Began compiling node model.motogp_data_platform.stg_rider_details
+[0m16:55:05.410427 [debug] [Thread-2 (]: Writing injected SQL for node "model.motogp_data_platform.stg_events"
+[0m16:55:05.413601 [debug] [Thread-3 (]: Writing injected SQL for node "model.motogp_data_platform.stg_grid"
+[0m16:55:05.416542 [debug] [Thread-4 (]: Writing injected SQL for node "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.417151 [debug] [Thread-1 (]: Began executing node model.motogp_data_platform.stg_categories
+[0m16:55:05.417702 [debug] [Thread-2 (]: Began executing node model.motogp_data_platform.stg_events
+[0m16:55:05.459819 [debug] [Thread-3 (]: Began executing node model.motogp_data_platform.stg_grid
+[0m16:55:05.465798 [debug] [Thread-4 (]: Began executing node model.motogp_data_platform.stg_rider_details
+[0m16:55:05.469093 [debug] [Thread-1 (]: Writing runtime sql for node "model.motogp_data_platform.stg_categories"
+[0m16:55:05.472817 [debug] [Thread-3 (]: Writing runtime sql for node "model.motogp_data_platform.stg_grid"
+[0m16:55:05.473566 [debug] [Thread-2 (]: Writing runtime sql for node "model.motogp_data_platform.stg_events"
+[0m16:55:05.476554 [debug] [Thread-4 (]: Writing runtime sql for node "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.477581 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_categories"
+[0m16:55:05.478483 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_grid"
+[0m16:55:05.478946 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_categories"} */
+
+  create view "motogp"."silver"."stg_categories__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        category_id,
+        category_name,
+        legacy_id,
+        extraction_date,
+        row_number() over (
+            partition by category_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_categories"
+    where category_id is not null
+)
+
+select
+    category_id,
+    category_name,
+    legacy_id,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.479391 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_events"
+[0m16:55:05.479725 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_grid"} */
+
+  create view "motogp"."silver"."stg_grid__dbt_tmp"
+    
+    
+  as (
+    with expanded as (
+    select
+        r.id as raw_id,
+        grid_row,
+        r.extraction_date
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload) grid_row
+    where r.endpoint like 'results/event/%/category/%/grid'
+),
+
+ranked as (
+    select
+        grid_row -> 'event' ->> 'id' as event_id,
+        grid_row -> 'category' ->> 'id' as category_id,
+        coalesce(
+            grid_row -> 'rider' ->> 'riders_api_uuid',
+            grid_row -> 'rider' ->> 'riders_id',
+            grid_row -> 'rider' ->> 'id'
+        ) as rider_id,
+        nullif(grid_row ->> 'qualifying_position', '')::integer as grid_position,
+        grid_row ->> 'qualifying_time' as qualifying_time,
+        extraction_date,
+        row_number() over (
+            partition by
+                grid_row -> 'event' ->> 'id',
+                grid_row -> 'category' ->> 'id',
+                coalesce(
+                    grid_row -> 'rider' ->> 'riders_api_uuid',
+                    grid_row -> 'rider' ->> 'riders_id',
+                    grid_row -> 'rider' ->> 'id'
+                )
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from expanded
+)
+
+select
+    event_id,
+    category_id,
+    rider_id,
+    grid_position,
+    qualifying_time,
+    extraction_date
+from ranked
+where row_num = 1
+  and event_id is not null
+  and category_id is not null
+  and rider_id is not null
+  );
+[0m16:55:05.480125 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.480394 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:55:05.480732 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_events"} */
+
+  create view "motogp"."silver"."stg_events__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        event_id,
+        event_name,
+        official_name,
+        country,
+        circuit,
+        nullif(start_date, '')::date as start_date,
+        nullif(end_date, '')::date as end_date,
+        extraction_date,
+        row_number() over (
+            partition by event_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_events"
+    where event_id is not null
+)
+
+select
+    event_id,
+    event_name,
+    official_name,
+    country,
+    circuit,
+    start_date,
+    end_date,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.481044 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:55:05.481349 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_details"} */
+
+  create view "motogp"."silver"."stg_rider_details__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        rider_id,
+        legacy_id,
+        rider_name,
+        rider_surname,
+        rider_number,
+        country,
+        nullif(birth_date, '')::date as birth_date,
+        height,
+        weight,
+        biography,
+        extraction_date,
+        row_number() over (
+            partition by rider_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_rider_details"
+    where rider_id is not null
+)
+
+select
+    rider_id,
+    legacy_id,
+    rider_name,
+    rider_surname,
+    rider_number,
+    country,
+    birth_date,
+    height,
+    weight,
+    biography,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.481792 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:55:05.482312 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:55:05.499839 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m16:55:05.500672 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m16:55:05.501250 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.020 seconds
+[0m16:55:05.501600 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m16:55:05.507563 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_categories"
+[0m16:55:05.510603 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_events"
+[0m16:55:05.514720 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_grid"
+[0m16:55:05.519031 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.519764 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_categories"} */
+alter table "motogp"."silver"."stg_categories" rename to "stg_categories__dbt_backup"
+[0m16:55:05.520624 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_events"} */
+alter table "motogp"."silver"."stg_events" rename to "stg_events__dbt_backup"
+[0m16:55:05.521291 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_grid"} */
+alter table "motogp"."silver"."stg_grid" rename to "stg_grid__dbt_backup"
+[0m16:55:05.521816 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_details"} */
+alter table "motogp"."silver"."stg_rider_details" rename to "stg_rider_details__dbt_backup"
+[0m16:55:05.523188 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.523709 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.524232 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.524723 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.528497 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_grid"
+[0m16:55:05.532396 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_categories"
+[0m16:55:05.535604 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_events"
+[0m16:55:05.539282 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.539902 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_grid"} */
+alter table "motogp"."silver"."stg_grid__dbt_tmp" rename to "stg_grid"
+[0m16:55:05.540788 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_categories"} */
+alter table "motogp"."silver"."stg_categories__dbt_tmp" rename to "stg_categories"
+[0m16:55:05.541657 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_events"} */
+alter table "motogp"."silver"."stg_events__dbt_tmp" rename to "stg_events"
+[0m16:55:05.542160 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_details"} */
+alter table "motogp"."silver"."stg_rider_details__dbt_tmp" rename to "stg_rider_details"
+[0m16:55:05.543057 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:55:05.543690 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.544216 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.544681 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.574062 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: COMMIT
+[0m16:55:05.574940 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: COMMIT
+[0m16:55:05.577363 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: COMMIT
+[0m16:55:05.579012 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: COMMIT
+[0m16:55:05.579509 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_categories"
+[0m16:55:05.580192 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.580574 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_grid"
+[0m16:55:05.580901 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_events"
+[0m16:55:05.581221 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: COMMIT
+[0m16:55:05.581915 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: COMMIT
+[0m16:55:05.582473 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: COMMIT
+[0m16:55:05.582799 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: COMMIT
+[0m16:55:05.591410 [debug] [Thread-1 (]: SQL status: COMMIT in 0.008 seconds
+[0m16:55:05.592187 [debug] [Thread-3 (]: SQL status: COMMIT in 0.009 seconds
+[0m16:55:05.598224 [debug] [Thread-2 (]: SQL status: COMMIT in 0.015 seconds
+[0m16:55:05.598791 [debug] [Thread-4 (]: SQL status: COMMIT in 0.015 seconds
+[0m16:55:05.602923 [debug] [Thread-3 (]: Applying DROP to: "motogp"."silver"."stg_grid__dbt_backup"
+[0m16:55:05.604127 [debug] [Thread-1 (]: Applying DROP to: "motogp"."silver"."stg_categories__dbt_backup"
+[0m16:55:05.606949 [debug] [Thread-2 (]: Applying DROP to: "motogp"."silver"."stg_events__dbt_backup"
+[0m16:55:05.610065 [debug] [Thread-4 (]: Applying DROP to: "motogp"."silver"."stg_rider_details__dbt_backup"
+[0m16:55:05.615373 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_grid"
+[0m16:55:05.616289 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_categories"
+[0m16:55:05.617429 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_events"
+[0m16:55:05.618195 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_details"
+[0m16:55:05.618762 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_grid"} */
+drop view if exists "motogp"."silver"."stg_grid__dbt_backup" cascade
+[0m16:55:05.619322 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_categories"} */
+drop view if exists "motogp"."silver"."stg_categories__dbt_backup" cascade
+[0m16:55:05.620066 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_events"} */
+drop view if exists "motogp"."silver"."stg_events__dbt_backup" cascade
+[0m16:55:05.620531 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_details"} */
+drop view if exists "motogp"."silver"."stg_rider_details__dbt_backup" cascade
+[0m16:55:05.624733 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m16:55:05.627186 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_events: Close
+[0m16:55:05.627646 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.007 seconds
+[0m16:55:05.628037 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.007 seconds
+[0m16:55:05.628601 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.007 seconds
+[0m16:55:05.632211 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_grid: Close
+[0m16:55:05.633677 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_categories: Close
+[0m16:55:05.635535 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_details: Close
+[0m16:55:05.636786 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f5f8dd0>]}
+[0m16:55:05.637320 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f5f9b50>]}
+[0m16:55:05.638064 [info ] [Thread-2 (]: 2 of 20 OK created sql view model silver.stg_events ............................ [[32mCREATE VIEW[0m in 0.23s]
+[0m16:55:05.638508 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f542ae0>]}
+[0m16:55:05.638957 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f542cf0>]}
+[0m16:55:05.639731 [info ] [Thread-3 (]: 3 of 20 OK created sql view model silver.stg_grid .............................. [[32mCREATE VIEW[0m in 0.24s]
+[0m16:55:05.640383 [debug] [Thread-2 (]: Finished running node model.motogp_data_platform.stg_events
+[0m16:55:05.641000 [info ] [Thread-1 (]: 1 of 20 OK created sql view model silver.stg_categories ........................ [[32mCREATE VIEW[0m in 0.24s]
+[0m16:55:05.641673 [info ] [Thread-4 (]: 4 of 20 OK created sql view model silver.stg_rider_details ..................... [[32mCREATE VIEW[0m in 0.24s]
+[0m16:55:05.642305 [debug] [Thread-3 (]: Finished running node model.motogp_data_platform.stg_grid
+[0m16:55:05.642912 [debug] [Thread-2 (]: Began running node model.motogp_data_platform.stg_rider_stats
+[0m16:55:05.643695 [debug] [Thread-1 (]: Finished running node model.motogp_data_platform.stg_categories
+[0m16:55:05.644231 [debug] [Thread-4 (]: Finished running node model.motogp_data_platform.stg_rider_details
+[0m16:55:05.644625 [debug] [Thread-3 (]: Began running node model.motogp_data_platform.stg_riders
+[0m16:55:05.645224 [info ] [Thread-2 (]: 5 of 20 START sql view model silver.stg_rider_stats ............................ [RUN]
+[0m16:55:05.645815 [debug] [Thread-1 (]: Began running node model.motogp_data_platform.stg_seasons
+[0m16:55:05.646540 [debug] [Thread-4 (]: Began running node model.motogp_data_platform.stg_session_classification
+[0m16:55:05.647218 [info ] [Thread-3 (]: 6 of 20 START sql view model silver.stg_riders ................................. [RUN]
+[0m16:55:05.647784 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_events, now model.motogp_data_platform.stg_rider_stats)
+[0m16:55:05.648333 [info ] [Thread-1 (]: 7 of 20 START sql view model silver.stg_seasons ................................ [RUN]
+[0m16:55:05.648980 [info ] [Thread-4 (]: 8 of 20 START sql view model silver.stg_session_classification ................. [RUN]
+[0m16:55:05.649581 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_grid, now model.motogp_data_platform.stg_riders)
+[0m16:55:05.650035 [debug] [Thread-2 (]: Began compiling node model.motogp_data_platform.stg_rider_stats
+[0m16:55:05.650482 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_categories, now model.motogp_data_platform.stg_seasons)
+[0m16:55:05.650948 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_rider_details, now model.motogp_data_platform.stg_session_classification)
+[0m16:55:05.652233 [debug] [Thread-3 (]: Began compiling node model.motogp_data_platform.stg_riders
+[0m16:55:05.656074 [debug] [Thread-2 (]: Writing injected SQL for node "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.656697 [debug] [Thread-1 (]: Began compiling node model.motogp_data_platform.stg_seasons
+[0m16:55:05.657193 [debug] [Thread-4 (]: Began compiling node model.motogp_data_platform.stg_session_classification
+[0m16:55:05.662971 [debug] [Thread-3 (]: Writing injected SQL for node "model.motogp_data_platform.stg_riders"
+[0m16:55:05.666643 [debug] [Thread-1 (]: Writing injected SQL for node "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.670262 [debug] [Thread-4 (]: Writing injected SQL for node "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.670826 [debug] [Thread-2 (]: Began executing node model.motogp_data_platform.stg_rider_stats
+[0m16:55:05.674726 [debug] [Thread-2 (]: Writing runtime sql for node "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.675579 [debug] [Thread-1 (]: Began executing node model.motogp_data_platform.stg_seasons
+[0m16:55:05.679196 [debug] [Thread-1 (]: Writing runtime sql for node "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.679833 [debug] [Thread-3 (]: Began executing node model.motogp_data_platform.stg_riders
+[0m16:55:05.683068 [debug] [Thread-3 (]: Writing runtime sql for node "model.motogp_data_platform.stg_riders"
+[0m16:55:05.683779 [debug] [Thread-4 (]: Began executing node model.motogp_data_platform.stg_session_classification
+[0m16:55:05.688202 [debug] [Thread-4 (]: Writing runtime sql for node "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.689177 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_riders"
+[0m16:55:05.691249 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_riders"} */
+
+  create view "motogp"."silver"."stg_riders__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        rider_id,
+        legacy_id,
+        rider_name,
+        rider_surname,
+        nickname,
+        country,
+        nullif(birth_date, '')::date as birth_date,
+        extraction_date,
+        row_number() over (
+            partition by rider_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_riders"
+    where rider_id is not null
+)
+
+select
+    rider_id,
+    legacy_id,
+    rider_name,
+    rider_surname,
+    nickname,
+    country,
+    birth_date,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.690739 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.690175 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.691777 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.692185 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:55:05.692722 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_stats"} */
+
+  create view "motogp"."silver"."stg_rider_stats__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        rider_id,
+        legacy_id,
+        season_year,
+        category_name,
+        constructor_name,
+        starts,
+        wins,
+        second_positions,
+        third_positions,
+        podiums,
+        poles,
+        points,
+        championship_position,
+        fastest_laps,
+        world_championships,
+        extraction_date,
+        row_number() over (
+            partition by coalesce(rider_id, legacy_id), season_year, category_name
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_rider_stats"
+    where season_year is not null
+      and category_name is not null
+)
+
+select
+    rider_id,
+    legacy_id,
+    season_year,
+    category_name,
+    constructor_name,
+    starts,
+    wins,
+    second_positions,
+    third_positions,
+    podiums,
+    poles,
+    points,
+    championship_position,
+    fastest_laps,
+    world_championships,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.693276 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_seasons"} */
+
+  create view "motogp"."silver"."stg_seasons__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        season_id,
+        season_year,
+        extraction_date,
+        row_number() over (
+            partition by season_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_seasons"
+    where season_id is not null
+)
+
+select
+    season_id,
+    season_year,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.693862 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_session_classification"} */
+
+  create view "motogp"."silver"."stg_session_classification__dbt_tmp"
+    
+    
+  as (
+    with expanded as (
+    select
+        r.id as raw_id,
+        split_part(r.endpoint, '/', 3) as session_id,
+        classification,
+        r.extraction_date
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload -> 'classification') classification
+    where r.endpoint like 'results/session/%/classification'
+      and jsonb_typeof(r.payload -> 'classification') = 'array'
+),
+
+ranked as (
+    select
+        session_id,
+        coalesce(
+            classification -> 'rider' ->> 'riders_api_uuid',
+            classification -> 'rider' ->> 'riders_id',
+            classification -> 'rider' ->> 'id'
+        ) as rider_id,
+        classification -> 'rider' ->> 'full_name' as rider_name,
+        classification -> 'team' ->> 'name' as team_name,
+        nullif(classification ->> 'position', '')::integer as position,
+        nullif(classification ->> 'points', '')::integer as points,
+        nullif(classification ->> 'total_laps', '')::integer as laps,
+        classification -> 'best_lap' ->> 'time' as total_time,
+        classification -> 'gap' ->> 'first' as gap,
+        extraction_date,
+        row_number() over (
+            partition by
+                session_id,
+                coalesce(
+                    classification -> 'rider' ->> 'riders_api_uuid',
+                    classification -> 'rider' ->> 'riders_id',
+                    classification -> 'rider' ->> 'id'
+                )
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from expanded
+)
+
+select
+    session_id,
+    rider_id,
+    rider_name,
+    team_name,
+    position,
+    points,
+    laps,
+    total_time,
+    gap,
+    extraction_date
+from ranked
+where row_num = 1
+  and session_id is not null
+  and rider_id is not null
+  );
+[0m16:55:05.695473 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:55:05.695014 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:55:05.694558 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:55:05.710063 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.015 seconds
+[0m16:55:05.714291 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.714951 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m16:55:05.715563 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.023 seconds
+[0m16:55:05.716002 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.021 seconds
+[0m16:55:05.716534 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_seasons"} */
+alter table "motogp"."silver"."stg_seasons" rename to "stg_seasons__dbt_backup"
+[0m16:55:05.719614 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.723046 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_riders"
+[0m16:55:05.727670 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.728601 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_session_classification"} */
+alter table "motogp"."silver"."stg_session_classification" rename to "stg_session_classification__dbt_backup"
+[0m16:55:05.729021 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_riders"} */
+alter table "motogp"."silver"."stg_riders" rename to "stg_riders__dbt_backup"
+[0m16:55:05.729346 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_stats"} */
+alter table "motogp"."silver"."stg_rider_stats" rename to "stg_rider_stats__dbt_backup"
+[0m16:55:05.729879 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.733156 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.733594 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m16:55:05.733932 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.004 seconds
+[0m16:55:05.734333 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.004 seconds
+[0m16:55:05.734803 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_seasons"} */
+alter table "motogp"."silver"."stg_seasons__dbt_tmp" rename to "stg_seasons"
+[0m16:55:05.737949 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.741959 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.745388 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_riders"
+[0m16:55:05.746136 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_stats"} */
+alter table "motogp"."silver"."stg_rider_stats__dbt_tmp" rename to "stg_rider_stats"
+[0m16:55:05.746822 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.747305 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_session_classification"} */
+alter table "motogp"."silver"."stg_session_classification__dbt_tmp" rename to "stg_session_classification"
+[0m16:55:05.747952 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_riders"} */
+alter table "motogp"."silver"."stg_riders__dbt_tmp" rename to "stg_riders"
+[0m16:55:05.750037 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: COMMIT
+[0m16:55:05.750594 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.751106 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.752875 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: COMMIT
+[0m16:55:05.753271 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.753732 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: COMMIT
+[0m16:55:05.754446 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m16:55:05.754974 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.756299 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: COMMIT
+[0m16:55:05.758133 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: COMMIT
+[0m16:55:05.758573 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:05.759124 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: COMMIT
+[0m16:55:05.759766 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.760740 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_riders"
+[0m16:55:05.762984 [debug] [Thread-1 (]: Applying DROP to: "motogp"."silver"."stg_seasons__dbt_backup"
+[0m16:55:05.763826 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: COMMIT
+[0m16:55:05.764440 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: COMMIT
+[0m16:55:05.765303 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:05.766313 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_seasons"
+[0m16:55:05.770058 [debug] [Thread-2 (]: Applying DROP to: "motogp"."silver"."stg_rider_stats__dbt_backup"
+[0m16:55:05.770519 [debug] [Thread-3 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:55:05.771181 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_seasons"} */
+drop view if exists "motogp"."silver"."stg_seasons__dbt_backup" cascade
+[0m16:55:05.771960 [debug] [Thread-4 (]: SQL status: COMMIT in 0.005 seconds
+[0m16:55:05.772625 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_rider_stats"
+[0m16:55:05.775092 [debug] [Thread-3 (]: Applying DROP to: "motogp"."silver"."stg_riders__dbt_backup"
+[0m16:55:05.778496 [debug] [Thread-4 (]: Applying DROP to: "motogp"."silver"."stg_session_classification__dbt_backup"
+[0m16:55:05.779070 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m16:55:05.779740 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_stats"} */
+drop view if exists "motogp"."silver"."stg_rider_stats__dbt_backup" cascade
+[0m16:55:05.780760 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.stg_riders"
+[0m16:55:05.781204 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_session_classification"
+[0m16:55:05.782910 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_seasons: Close
+[0m16:55:05.783479 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_riders"} */
+drop view if exists "motogp"."silver"."stg_riders__dbt_backup" cascade
+[0m16:55:05.784530 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_session_classification"} */
+drop view if exists "motogp"."silver"."stg_session_classification__dbt_backup" cascade
+[0m16:55:05.785868 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f4f6c30>]}
+[0m16:55:05.786283 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m16:55:05.786910 [info ] [Thread-1 (]: 7 of 20 OK created sql view model silver.stg_seasons ........................... [[32mCREATE VIEW[0m in 0.14s]
+[0m16:55:05.787301 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m16:55:05.787811 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m16:55:05.789200 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_rider_stats: Close
+[0m16:55:05.789829 [debug] [Thread-1 (]: Finished running node model.motogp_data_platform.stg_seasons
+[0m16:55:05.791399 [debug] [Thread-3 (]: On model.motogp_data_platform.stg_riders: Close
+[0m16:55:05.793651 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_session_classification: Close
+[0m16:55:05.794418 [debug] [Thread-1 (]: Began running node model.motogp_data_platform.stg_sessions
+[0m16:55:05.795393 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f4f39e0>]}
+[0m16:55:05.796103 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f4f1d90>]}
+[0m16:55:05.796932 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f4bbbf0>]}
+[0m16:55:05.797960 [info ] [Thread-1 (]: 9 of 20 START sql view model silver.stg_sessions ............................... [RUN]
+[0m16:55:05.799017 [info ] [Thread-2 (]: 5 of 20 OK created sql view model silver.stg_rider_stats ....................... [[32mCREATE VIEW[0m in 0.15s]
+[0m16:55:05.800114 [info ] [Thread-3 (]: 6 of 20 OK created sql view model silver.stg_riders ............................ [[32mCREATE VIEW[0m in 0.15s]
+[0m16:55:05.801235 [info ] [Thread-4 (]: 8 of 20 OK created sql view model silver.stg_session_classification ............ [[32mCREATE VIEW[0m in 0.15s]
+[0m16:55:05.801962 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_seasons, now model.motogp_data_platform.stg_sessions)
+[0m16:55:05.802707 [debug] [Thread-2 (]: Finished running node model.motogp_data_platform.stg_rider_stats
+[0m16:55:05.803292 [debug] [Thread-3 (]: Finished running node model.motogp_data_platform.stg_riders
+[0m16:55:05.803860 [debug] [Thread-4 (]: Finished running node model.motogp_data_platform.stg_session_classification
+[0m16:55:05.804408 [debug] [Thread-1 (]: Began compiling node model.motogp_data_platform.stg_sessions
+[0m16:55:05.804976 [debug] [Thread-2 (]: Began running node model.motogp_data_platform.stg_standings
+[0m16:55:05.805598 [debug] [Thread-3 (]: Began running node model.motogp_data_platform.dim_events
+[0m16:55:05.806129 [debug] [Thread-4 (]: Began running node model.motogp_data_platform.fact_event_grid
+[0m16:55:05.810406 [debug] [Thread-1 (]: Writing injected SQL for node "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.811108 [info ] [Thread-2 (]: 10 of 20 START sql view model silver.stg_standings ............................. [RUN]
+[0m16:55:05.811728 [info ] [Thread-3 (]: 11 of 20 START sql table model gold.dim_events ................................. [RUN]
+[0m16:55:05.813259 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_rider_stats, now model.motogp_data_platform.stg_standings)
+[0m16:55:05.812495 [info ] [Thread-4 (]: 12 of 20 START sql table model gold.fact_event_grid ............................ [RUN]
+[0m16:55:05.814027 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_riders, now model.motogp_data_platform.dim_events)
+[0m16:55:05.814507 [debug] [Thread-2 (]: Began compiling node model.motogp_data_platform.stg_standings
+[0m16:55:05.815051 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_session_classification, now model.motogp_data_platform.fact_event_grid)
+[0m16:55:05.815536 [debug] [Thread-1 (]: Began executing node model.motogp_data_platform.stg_sessions
+[0m16:55:05.815949 [debug] [Thread-3 (]: Began compiling node model.motogp_data_platform.dim_events
+[0m16:55:05.822164 [debug] [Thread-2 (]: Writing injected SQL for node "model.motogp_data_platform.stg_standings"
+[0m16:55:05.822645 [debug] [Thread-4 (]: Began compiling node model.motogp_data_platform.fact_event_grid
+[0m16:55:05.828954 [debug] [Thread-1 (]: Writing runtime sql for node "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.833649 [debug] [Thread-3 (]: Writing injected SQL for node "model.motogp_data_platform.dim_events"
+[0m16:55:05.834700 [debug] [Thread-2 (]: Began executing node model.motogp_data_platform.stg_standings
+[0m16:55:05.842073 [debug] [Thread-4 (]: Writing injected SQL for node "model.motogp_data_platform.fact_event_grid"
+[0m16:55:05.847426 [debug] [Thread-2 (]: Writing runtime sql for node "model.motogp_data_platform.stg_standings"
+[0m16:55:05.848452 [debug] [Thread-3 (]: Began executing node model.motogp_data_platform.dim_events
+[0m16:55:05.849382 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.863536 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_sessions"} */
+
+  create view "motogp"."silver"."stg_sessions__dbt_tmp"
+    
+    
+  as (
+    with ranked as (
+    select
+        session_id,
+        session_name,
+        session_type,
+        nullif(session_date, '')::timestamptz as session_datetime,
+        event_id,
+        category_id,
+        extraction_date,
+        row_number() over (
+            partition by session_id
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from "motogp"."bronze"."motogp_sessions"
+    where session_id is not null
+)
+
+select
+    session_id,
+    session_name,
+    session_type,
+    session_datetime,
+    event_id,
+    category_id,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:05.864228 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:55:05.850237 [debug] [Thread-4 (]: Began executing node model.motogp_data_platform.fact_event_grid
+[0m16:55:05.882277 [debug] [Thread-3 (]: Writing runtime sql for node "model.motogp_data_platform.dim_events"
+[0m16:55:05.888314 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_standings"
+[0m16:55:05.888870 [debug] [Thread-4 (]: Writing runtime sql for node "model.motogp_data_platform.fact_event_grid"
+[0m16:55:05.889598 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_standings"} */
+
+  create view "motogp"."silver"."stg_standings__dbt_tmp"
+    
+    
+  as (
+    with expanded as (
+    select
+        r.id as raw_id,
+        r.request_params ->> 'seasonUuid' as season_id,
+        r.request_params ->> 'categoryUuid' as category_id,
+        standing,
+        r.extraction_date
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload -> 'classification') standing
+    where r.endpoint = 'results/standings'
+      and jsonb_typeof(r.payload -> 'classification') = 'array'
+),
+
+ranked as (
+    select
+        season_id,
+        category_id,
+        coalesce(
+            standing -> 'rider' ->> 'riders_api_uuid',
+            standing -> 'rider' ->> 'riders_id',
+            standing -> 'rider' ->> 'id'
+        ) as rider_id,
+        standing -> 'rider' ->> 'full_name' as rider_name,
+        standing -> 'team' ->> 'name' as team_name,
+        nullif(standing ->> 'position', '')::integer as position,
+        nullif(standing ->> 'points', '')::numeric as points,
+        nullif(standing ->> 'race_wins', '')::integer as wins,
+        nullif(standing ->> 'podiums', '')::integer as podiums,
+        extraction_date,
+        row_number() over (
+            partition by
+                season_id,
+                category_id,
+                coalesce(
+                    standing -> 'rider' ->> 'riders_api_uuid',
+                    standing -> 'rider' ->> 'riders_id',
+                    standing -> 'rider' ->> 'id'
+                )
+            order by extraction_date desc, raw_id desc
+        ) as row_num
+    from expanded
+)
+
+select
+    season_id,
+    category_id,
+    rider_id,
+    rider_name,
+    team_name,
+    position,
+    points,
+    wins,
+    podiums,
+    extraction_date
+from ranked
+where row_num = 1
+  and season_id is not null
+  and category_id is not null
+  and rider_id is not null
+  );
+[0m16:55:05.890634 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_events"
+[0m16:55:05.891282 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:55:05.892121 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_events"} */
+
+  
+    
+
+  create  table "motogp"."gold"."dim_events__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    event_id,
+    event_name,
+    official_name,
+    country,
+    circuit,
+    start_date,
+    end_date
+from "motogp"."silver"."stg_events"
+  );
+  
+[0m16:55:05.893112 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_event_grid"
+[0m16:55:05.896174 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_event_grid"} */
+
+  
+    
+
+  create  table "motogp"."gold"."fact_event_grid__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    g.event_id,
+    g.category_id,
+    g.rider_id,
+    g.grid_position,
+    g.qualifying_time
+from "motogp"."silver"."stg_grid" g
+  );
+  
+[0m16:55:05.894115 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.030 seconds
+[0m16:55:05.897046 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:55:05.895035 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:55:05.900859 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.901770 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_sessions"} */
+alter table "motogp"."silver"."stg_sessions" rename to "stg_sessions__dbt_backup"
+[0m16:55:05.902793 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:55:05.906844 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.907341 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.016 seconds
+[0m16:55:05.907832 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_sessions"} */
+alter table "motogp"."silver"."stg_sessions__dbt_tmp" rename to "stg_sessions"
+[0m16:55:05.911455 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_standings"
+[0m16:55:05.912146 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_standings"} */
+alter table "motogp"."silver"."stg_standings" rename to "stg_standings__dbt_backup"
+[0m16:55:05.912645 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.915383 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: COMMIT
+[0m16:55:05.915796 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m16:55:05.916128 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.918899 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_standings"
+[0m16:55:05.919400 [debug] [Thread-3 (]: SQL status: SELECT 35 in 0.024 seconds
+[0m16:55:05.919955 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: COMMIT
+[0m16:55:05.920511 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_standings"} */
+alter table "motogp"."silver"."stg_standings__dbt_tmp" rename to "stg_standings"
+[0m16:55:05.927236 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_events"
+[0m16:55:05.927839 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_events"} */
+alter table "motogp"."gold"."dim_events" rename to "dim_events__dbt_backup"
+[0m16:55:05.928439 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.928997 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.930240 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: COMMIT
+[0m16:55:05.933649 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_events"
+[0m16:55:05.934165 [debug] [Thread-1 (]: SQL status: COMMIT in 0.007 seconds
+[0m16:55:05.934683 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_standings"
+[0m16:55:05.935199 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_events"} */
+alter table "motogp"."gold"."dim_events__dbt_tmp" rename to "dim_events"
+[0m16:55:05.937896 [debug] [Thread-1 (]: Applying DROP to: "motogp"."silver"."stg_sessions__dbt_backup"
+[0m16:55:05.938582 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: COMMIT
+[0m16:55:05.939603 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.stg_sessions"
+[0m16:55:05.940219 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.940905 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_sessions"} */
+drop view if exists "motogp"."silver"."stg_sessions__dbt_backup" cascade
+[0m16:55:05.942178 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: COMMIT
+[0m16:55:05.942636 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:05.943072 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_events"
+[0m16:55:05.945510 [debug] [Thread-2 (]: Applying DROP to: "motogp"."silver"."stg_standings__dbt_backup"
+[0m16:55:05.945888 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: COMMIT
+[0m16:55:05.946222 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m16:55:05.946969 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.stg_standings"
+[0m16:55:05.948975 [debug] [Thread-1 (]: On model.motogp_data_platform.stg_sessions: Close
+[0m16:55:05.949387 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:05.949884 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_standings"} */
+drop view if exists "motogp"."silver"."stg_standings__dbt_backup" cascade
+[0m16:55:05.953872 [debug] [Thread-3 (]: Applying DROP to: "motogp"."gold"."dim_events__dbt_backup"
+[0m16:55:05.954454 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416cbd60f0>]}
+[0m16:55:05.957180 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_events"
+[0m16:55:05.957961 [info ] [Thread-1 (]: 9 of 20 OK created sql view model silver.stg_sessions .......................... [[32mCREATE VIEW[0m in 0.15s]
+[0m16:55:05.958646 [debug] [Thread-4 (]: SQL status: SELECT 1716 in 0.062 seconds
+[0m16:55:05.959209 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m16:55:05.959530 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_events"} */
+drop table if exists "motogp"."gold"."dim_events__dbt_backup" cascade
+[0m16:55:05.960064 [debug] [Thread-1 (]: Finished running node model.motogp_data_platform.stg_sessions
+[0m16:55:05.962922 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_event_grid"
+[0m16:55:05.964660 [debug] [Thread-2 (]: On model.motogp_data_platform.stg_standings: Close
+[0m16:55:05.965311 [debug] [Thread-1 (]: Began running node model.motogp_data_platform.dim_categories
+[0m16:55:05.965992 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_event_grid"} */
+alter table "motogp"."gold"."fact_event_grid" rename to "fact_event_grid__dbt_backup"
+[0m16:55:05.967057 [info ] [Thread-1 (]: 13 of 20 START sql table model gold.dim_categories ............................. [RUN]
+[0m16:55:05.968894 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_sessions, now model.motogp_data_platform.dim_categories)
+[0m16:55:05.968299 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f542450>]}
+[0m16:55:05.967636 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m16:55:05.969356 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:05.969763 [debug] [Thread-1 (]: Began compiling node model.motogp_data_platform.dim_categories
+[0m16:55:05.970643 [info ] [Thread-2 (]: 10 of 20 OK created sql view model silver.stg_standings ........................ [[32mCREATE VIEW[0m in 0.16s]
+[0m16:55:05.972680 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_events: Close
+[0m16:55:05.976742 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_event_grid"
+[0m16:55:05.980416 [debug] [Thread-1 (]: Writing injected SQL for node "model.motogp_data_platform.dim_categories"
+[0m16:55:05.983018 [debug] [Thread-1 (]: Began executing node model.motogp_data_platform.dim_categories
+[0m16:55:05.981196 [debug] [Thread-2 (]: Finished running node model.motogp_data_platform.stg_standings
+[0m16:55:05.982299 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f4f60c0>]}
+[0m16:55:05.981709 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_event_grid"} */
+alter table "motogp"."gold"."fact_event_grid__dbt_tmp" rename to "fact_event_grid"
+[0m16:55:05.987260 [debug] [Thread-1 (]: Writing runtime sql for node "model.motogp_data_platform.dim_categories"
+[0m16:55:05.987939 [debug] [Thread-2 (]: Began running node model.motogp_data_platform.dim_seasons
+[0m16:55:05.988796 [info ] [Thread-3 (]: 11 of 20 OK created sql table model gold.dim_events ............................ [[32mSELECT 35[0m in 0.17s]
+[0m16:55:05.990978 [debug] [Thread-3 (]: Finished running node model.motogp_data_platform.dim_events
+[0m16:55:05.991448 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m16:55:05.992231 [debug] [Thread-3 (]: Began running node model.motogp_data_platform.fact_rider_season_stats
+[0m16:55:05.990261 [info ] [Thread-2 (]: 14 of 20 START sql table model gold.dim_seasons ................................ [RUN]
+[0m16:55:05.993020 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_categories"
+[0m16:55:05.996739 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: COMMIT
+[0m16:55:05.998200 [info ] [Thread-3 (]: 15 of 20 START sql table model gold.fact_rider_season_stats .................... [RUN]
+[0m16:55:05.998988 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_standings, now model.motogp_data_platform.dim_seasons)
+[0m16:55:05.999498 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_categories"} */
+
+  
+    
+
+  create  table "motogp"."gold"."dim_categories__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    category_id,
+    category_name,
+    legacy_id as category_legacy_id
+from "motogp"."silver"."stg_categories"
+  );
+  
+[0m16:55:06.000135 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_event_grid"
+[0m16:55:06.000662 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.dim_events, now model.motogp_data_platform.fact_rider_season_stats)
+[0m16:55:06.001255 [debug] [Thread-2 (]: Began compiling node model.motogp_data_platform.dim_seasons
+[0m16:55:06.001754 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:55:06.002195 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: COMMIT
+[0m16:55:06.002554 [debug] [Thread-3 (]: Began compiling node model.motogp_data_platform.fact_rider_season_stats
+[0m16:55:06.005360 [debug] [Thread-2 (]: Writing injected SQL for node "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.009270 [debug] [Thread-3 (]: Writing injected SQL for node "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.009861 [debug] [Thread-4 (]: SQL status: COMMIT in 0.004 seconds
+[0m16:55:06.012945 [debug] [Thread-4 (]: Applying DROP to: "motogp"."gold"."fact_event_grid__dbt_backup"
+[0m16:55:06.013814 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_event_grid"
+[0m16:55:06.014247 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_event_grid"} */
+drop table if exists "motogp"."gold"."fact_event_grid__dbt_backup" cascade
+[0m16:55:06.014675 [debug] [Thread-2 (]: Began executing node model.motogp_data_platform.dim_seasons
+[0m16:55:06.015124 [debug] [Thread-3 (]: Began executing node model.motogp_data_platform.fact_rider_season_stats
+[0m16:55:06.019524 [debug] [Thread-2 (]: Writing runtime sql for node "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.020110 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.005 seconds
+[0m16:55:06.024442 [debug] [Thread-3 (]: Writing runtime sql for node "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.027427 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.025170 [debug] [Thread-1 (]: SQL status: SELECT 7 in 0.023 seconds
+[0m16:55:06.026734 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_event_grid: Close
+[0m16:55:06.034248 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416cb6f800>]}
+[0m16:55:06.028463 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.027796 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_seasons"} */
+
+  
+    
+
+  create  table "motogp"."gold"."dim_seasons__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    season_id,
+    season_year
+from "motogp"."silver"."stg_seasons"
+  );
+  
+[0m16:55:06.035535 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_rider_season_stats"} */
+
+  
+    
+
+  create  table "motogp"."gold"."fact_rider_season_stats__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    s.rider_id,
+    s.legacy_id as rider_legacy_id,
+    s.season_year,
+    s.category_name,
+    s.constructor_name,
+    s.starts,
+    s.wins,
+    s.second_positions,
+    s.third_positions,
+    s.podiums,
+    s.poles,
+    s.points,
+    s.championship_position,
+    s.fastest_laps,
+    s.world_championships
+from "motogp"."silver"."stg_rider_stats" s
+  );
+  
+[0m16:55:06.033115 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_categories"
+[0m16:55:06.036086 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:55:06.036573 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:55:06.035004 [info ] [Thread-4 (]: 12 of 20 OK created sql table model gold.fact_event_grid ....................... [[32mSELECT 1716[0m in 0.22s]
+[0m16:55:06.037093 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_categories"} */
+alter table "motogp"."gold"."dim_categories" rename to "dim_categories__dbt_backup"
+[0m16:55:06.038382 [debug] [Thread-4 (]: Finished running node model.motogp_data_platform.fact_event_grid
+[0m16:55:06.039196 [debug] [Thread-4 (]: Began running node model.motogp_data_platform.stg_rider_references
+[0m16:55:06.040620 [info ] [Thread-4 (]: 16 of 20 START sql view model silver.stg_rider_references ...................... [RUN]
+[0m16:55:06.041185 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.fact_event_grid, now model.motogp_data_platform.stg_rider_references)
+[0m16:55:06.041581 [debug] [Thread-4 (]: Began compiling node model.motogp_data_platform.stg_rider_references
+[0m16:55:06.039771 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.047679 [debug] [Thread-4 (]: Writing injected SQL for node "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.051876 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_categories"
+[0m16:55:06.052395 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_categories"} */
+alter table "motogp"."gold"."dim_categories__dbt_tmp" rename to "dim_categories"
+[0m16:55:06.052891 [debug] [Thread-4 (]: Began executing node model.motogp_data_platform.stg_rider_references
+[0m16:55:06.053285 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:55:06.056571 [debug] [Thread-4 (]: Writing runtime sql for node "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.057158 [debug] [Thread-2 (]: SQL status: SELECT 78 in 0.021 seconds
+[0m16:55:06.059071 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: COMMIT
+[0m16:55:06.059542 [debug] [Thread-3 (]: SQL status: SELECT 665 in 0.023 seconds
+[0m16:55:06.064900 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.065543 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_categories"
+[0m16:55:06.071115 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: COMMIT
+[0m16:55:06.070074 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.070580 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_seasons"} */
+alter table "motogp"."gold"."dim_seasons" rename to "dim_seasons__dbt_backup"
+[0m16:55:06.069492 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.071848 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_references"} */
+
+  create view "motogp"."silver"."stg_rider_references__dbt_tmp"
+    
+    
+  as (
+    with base_riders as (
+    select
+        rider_id,
+        legacy_id,
+        rider_name,
+        rider_surname,
+        nickname,
+        country,
+        birth_date,
+        extraction_date,
+        1 as source_priority
+    from "motogp"."silver"."stg_riders"
+
+    union all
+
+    select
+        rider_id,
+        legacy_id,
+        rider_name,
+        rider_surname,
+        null as nickname,
+        country,
+        birth_date,
+        extraction_date,
+        1 as source_priority
+    from "motogp"."silver"."stg_rider_details"
+),
+
+grid_riders as (
+    select
+        coalesce(
+            grid_row -> 'rider' ->> 'riders_api_uuid',
+            grid_row -> 'rider' ->> 'riders_id',
+            grid_row -> 'rider' ->> 'id'
+        ) as rider_id,
+        grid_row -> 'rider' ->> 'legacy_id' as legacy_id,
+        grid_row -> 'rider' ->> 'full_name' as rider_name,
+        null as rider_surname,
+        null as nickname,
+        grid_row -> 'rider' -> 'country' ->> 'name' as country,
+        null::date as birth_date,
+        r.extraction_date,
+        2 as source_priority
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload) grid_row
+    where r.endpoint like 'results/event/%/category/%/grid'
+      and jsonb_typeof(r.payload) = 'array'
+),
+
+classification_riders as (
+    select
+        coalesce(
+            classification -> 'rider' ->> 'riders_api_uuid',
+            classification -> 'rider' ->> 'riders_id',
+            classification -> 'rider' ->> 'id'
+        ) as rider_id,
+        classification -> 'rider' ->> 'legacy_id' as legacy_id,
+        classification -> 'rider' ->> 'full_name' as rider_name,
+        null as rider_surname,
+        null as nickname,
+        classification -> 'rider' -> 'country' ->> 'name' as country,
+        null::date as birth_date,
+        r.extraction_date,
+        3 as source_priority
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload -> 'classification') classification
+    where r.endpoint like 'results/session/%/classification'
+      and jsonb_typeof(r.payload -> 'classification') = 'array'
+),
+
+standing_riders as (
+    select
+        coalesce(
+            standing -> 'rider' ->> 'riders_api_uuid',
+            standing -> 'rider' ->> 'riders_id',
+            standing -> 'rider' ->> 'id'
+        ) as rider_id,
+        standing -> 'rider' ->> 'legacy_id' as legacy_id,
+        standing -> 'rider' ->> 'full_name' as rider_name,
+        null as rider_surname,
+        null as nickname,
+        standing -> 'rider' -> 'country' ->> 'name' as country,
+        null::date as birth_date,
+        r.extraction_date,
+        4 as source_priority
+    from "motogp"."raw"."motogp_api_raw" r
+    cross join lateral jsonb_array_elements(r.payload -> 'classification') standing
+    where r.endpoint = 'results/standings'
+      and jsonb_typeof(r.payload -> 'classification') = 'array'
+),
+
+unioned as (
+    select * from base_riders
+    union all
+    select * from grid_riders
+    union all
+    select * from classification_riders
+    union all
+    select * from standing_riders
+),
+
+ranked as (
+    select
+        rider_id,
+        legacy_id,
+        rider_name,
+        rider_surname,
+        nickname,
+        country,
+        birth_date,
+        extraction_date,
+        row_number() over (
+            partition by rider_id
+            order by source_priority asc, extraction_date desc
+        ) as row_num
+    from unioned
+    where rider_id is not null
+)
+
+select
+    rider_id,
+    legacy_id,
+    rider_name,
+    rider_surname,
+    nickname,
+    country,
+    birth_date,
+    extraction_date
+from ranked
+where row_num = 1
+  );
+[0m16:55:06.072661 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_rider_season_stats"} */
+alter table "motogp"."gold"."fact_rider_season_stats" rename to "fact_rider_season_stats__dbt_backup"
+[0m16:55:06.073167 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.073740 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:55:06.074152 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:55:06.078343 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.082242 [debug] [Thread-1 (]: Applying DROP to: "motogp"."gold"."dim_categories__dbt_backup"
+[0m16:55:06.083130 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.008 seconds
+[0m16:55:06.083652 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_seasons"} */
+alter table "motogp"."gold"."dim_seasons__dbt_tmp" rename to "dim_seasons"
+[0m16:55:06.084477 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_categories"
+[0m16:55:06.089663 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_categories"} */
+drop table if exists "motogp"."gold"."dim_categories__dbt_backup" cascade
+[0m16:55:06.088677 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.090201 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.090839 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_rider_season_stats"} */
+alter table "motogp"."gold"."fact_rider_season_stats__dbt_tmp" rename to "fact_rider_season_stats"
+[0m16:55:06.092742 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: COMMIT
+[0m16:55:06.093229 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.003 seconds
+[0m16:55:06.093794 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.094185 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.098855 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: COMMIT
+[0m16:55:06.096627 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.023 seconds
+[0m16:55:06.097028 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: COMMIT
+[0m16:55:06.096163 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_categories: Close
+[0m16:55:06.099406 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.102589 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.103362 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: COMMIT
+[0m16:55:06.104163 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f543b90>]}
+[0m16:55:06.104559 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_references"} */
+alter table "motogp"."silver"."stg_rider_references__dbt_tmp" rename to "stg_rider_references"
+[0m16:55:06.104875 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:06.105628 [info ] [Thread-1 (]: 13 of 20 OK created sql table model gold.dim_categories ........................ [[32mSELECT 7[0m in 0.14s]
+[0m16:55:06.108449 [debug] [Thread-2 (]: Applying DROP to: "motogp"."gold"."dim_seasons__dbt_backup"
+[0m16:55:06.108907 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m16:55:06.109200 [debug] [Thread-3 (]: SQL status: COMMIT in 0.004 seconds
+[0m16:55:06.109923 [debug] [Thread-1 (]: Finished running node model.motogp_data_platform.dim_categories
+[0m16:55:06.110806 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.dim_seasons"
+[0m16:55:06.112369 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: COMMIT
+[0m16:55:06.114782 [debug] [Thread-3 (]: Applying DROP to: "motogp"."gold"."fact_rider_season_stats__dbt_backup"
+[0m16:55:06.115567 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_seasons"} */
+drop table if exists "motogp"."gold"."dim_seasons__dbt_backup" cascade
+[0m16:55:06.116210 [debug] [Thread-1 (]: Began running node model.motogp_data_platform.dim_sessions
+[0m16:55:06.116812 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.117655 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.fact_rider_season_stats"
+[0m16:55:06.118328 [info ] [Thread-1 (]: 17 of 20 START sql table model gold.dim_sessions ............................... [RUN]
+[0m16:55:06.118790 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: COMMIT
+[0m16:55:06.119340 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_rider_season_stats"} */
+drop table if exists "motogp"."gold"."fact_rider_season_stats__dbt_backup" cascade
+[0m16:55:06.119813 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.dim_categories, now model.motogp_data_platform.dim_sessions)
+[0m16:55:06.120189 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m16:55:06.120751 [debug] [Thread-1 (]: Began compiling node model.motogp_data_platform.dim_sessions
+[0m16:55:06.122365 [debug] [Thread-2 (]: On model.motogp_data_platform.dim_seasons: Close
+[0m16:55:06.122752 [debug] [Thread-4 (]: SQL status: COMMIT in 0.002 seconds
+[0m16:55:06.126305 [debug] [Thread-1 (]: Writing injected SQL for node "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.126726 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.006 seconds
+[0m16:55:06.129279 [debug] [Thread-4 (]: Applying DROP to: "motogp"."silver"."stg_rider_references__dbt_backup"
+[0m16:55:06.130204 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416cb987a0>]}
+[0m16:55:06.131814 [debug] [Thread-3 (]: On model.motogp_data_platform.fact_rider_season_stats: Close
+[0m16:55:06.133981 [debug] [Thread-1 (]: Began executing node model.motogp_data_platform.dim_sessions
+[0m16:55:06.133365 [info ] [Thread-2 (]: 14 of 20 OK created sql table model gold.dim_seasons ........................... [[32mSELECT 78[0m in 0.13s]
+[0m16:55:06.132542 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.stg_rider_references"
+[0m16:55:06.134703 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416caae3c0>]}
+[0m16:55:06.141180 [debug] [Thread-1 (]: Writing runtime sql for node "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.141810 [debug] [Thread-2 (]: Finished running node model.motogp_data_platform.dim_seasons
+[0m16:55:06.142222 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.stg_rider_references"} */
+drop view if exists "motogp"."silver"."stg_rider_references__dbt_backup" cascade
+[0m16:55:06.142953 [info ] [Thread-3 (]: 15 of 20 OK created sql table model gold.fact_rider_season_stats ............... [[32mSELECT 665[0m in 0.13s]
+[0m16:55:06.143850 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.145448 [debug] [Thread-3 (]: Finished running node model.motogp_data_platform.fact_rider_season_stats
+[0m16:55:06.146031 [debug] [Thread-2 (]: Began running node model.motogp_data_platform.fact_standings
+[0m16:55:06.146534 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_sessions"} */
+
+  
+    
+
+  create  table "motogp"."gold"."dim_sessions__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    s.session_id,
+    s.session_name,
+    s.session_type,
+    s.session_datetime,
+    s.event_id,
+    e.event_name,
+    s.category_id,
+    c.category_name
+from "motogp"."silver"."stg_sessions" s
+left join "motogp"."gold"."dim_events" e
+    on s.event_id = e.event_id
+left join "motogp"."gold"."dim_categories" c
+    on s.category_id = c.category_id
+  );
+  
+[0m16:55:06.147069 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m16:55:06.148055 [info ] [Thread-2 (]: 18 of 20 START sql table model gold.fact_standings ............................. [RUN]
+[0m16:55:06.148675 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:55:06.150861 [debug] [Thread-4 (]: On model.motogp_data_platform.stg_rider_references: Close
+[0m16:55:06.151583 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.dim_seasons, now model.motogp_data_platform.fact_standings)
+[0m16:55:06.152264 [debug] [Thread-2 (]: Began compiling node model.motogp_data_platform.fact_standings
+[0m16:55:06.153001 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416cac13a0>]}
+[0m16:55:06.156805 [debug] [Thread-2 (]: Writing injected SQL for node "model.motogp_data_platform.fact_standings"
+[0m16:55:06.157921 [info ] [Thread-4 (]: 16 of 20 OK created sql view model silver.stg_rider_references ................. [[32mCREATE VIEW[0m in 0.11s]
+[0m16:55:06.159566 [debug] [Thread-4 (]: Finished running node model.motogp_data_platform.stg_rider_references
+[0m16:55:06.160180 [debug] [Thread-2 (]: Began executing node model.motogp_data_platform.fact_standings
+[0m16:55:06.163722 [debug] [Thread-2 (]: Writing runtime sql for node "model.motogp_data_platform.fact_standings"
+[0m16:55:06.164126 [debug] [Thread-3 (]: Began running node model.motogp_data_platform.dim_riders
+[0m16:55:06.164919 [info ] [Thread-3 (]: 19 of 20 START sql table model gold.dim_riders ................................. [RUN]
+[0m16:55:06.165804 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.fact_rider_season_stats, now model.motogp_data_platform.dim_riders)
+[0m16:55:06.166492 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.fact_standings"
+[0m16:55:06.167165 [debug] [Thread-3 (]: Began compiling node model.motogp_data_platform.dim_riders
+[0m16:55:06.167785 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_standings"} */
+
+  
+    
+
+  create  table "motogp"."gold"."fact_standings__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    st.season_id,
+    se.season_year,
+    st.category_id,
+    st.rider_id,
+    st.team_name,
+    st.position,
+    st.points,
+    st.wins,
+    st.podiums
+from "motogp"."silver"."stg_standings" st
+left join "motogp"."gold"."dim_seasons" se
+    on st.season_id = se.season_id
+  );
+  
+[0m16:55:06.171940 [debug] [Thread-3 (]: Writing injected SQL for node "model.motogp_data_platform.dim_riders"
+[0m16:55:06.173223 [debug] [Thread-3 (]: Began executing node model.motogp_data_platform.dim_riders
+[0m16:55:06.172481 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:55:06.177845 [debug] [Thread-3 (]: Writing runtime sql for node "model.motogp_data_platform.dim_riders"
+[0m16:55:06.178427 [debug] [Thread-1 (]: SQL status: SELECT 491 in 0.030 seconds
+[0m16:55:06.183625 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.184138 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_sessions"} */
+alter table "motogp"."gold"."dim_sessions" rename to "dim_sessions__dbt_backup"
+[0m16:55:06.184851 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_riders"
+[0m16:55:06.185326 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.185742 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_riders"} */
+
+  
+    
+
+  create  table "motogp"."gold"."dim_riders__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    r.rider_id,
+    coalesce(d.legacy_id, r.legacy_id) as rider_legacy_id,
+    coalesce(d.rider_name, r.rider_name) as rider_name,
+    coalesce(d.rider_surname, r.rider_surname) as rider_surname,
+    r.nickname,
+    d.rider_number,
+    coalesce(d.country, r.country) as country,
+    coalesce(d.birth_date, r.birth_date) as birth_date,
+    d.height,
+    d.weight,
+    d.biography
+from "motogp"."silver"."stg_rider_references" r
+left join "motogp"."silver"."stg_rider_details" d
+    on r.rider_id = d.rider_id
+  );
+  
+[0m16:55:06.189947 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.190473 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:55:06.190974 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_sessions"} */
+alter table "motogp"."gold"."dim_sessions__dbt_tmp" rename to "dim_sessions"
+[0m16:55:06.192365 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.194310 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: COMMIT
+[0m16:55:06.194878 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.195324 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: COMMIT
+[0m16:55:06.198485 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:55:06.201316 [debug] [Thread-1 (]: Applying DROP to: "motogp"."gold"."dim_sessions__dbt_backup"
+[0m16:55:06.202020 [debug] [Thread-1 (]: Using postgres connection "model.motogp_data_platform.dim_sessions"
+[0m16:55:06.202505 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_sessions"} */
+drop table if exists "motogp"."gold"."dim_sessions__dbt_backup" cascade
+[0m16:55:06.205071 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m16:55:06.205674 [debug] [Thread-2 (]: SQL status: SELECT 153 in 0.033 seconds
+[0m16:55:06.207391 [debug] [Thread-1 (]: On model.motogp_data_platform.dim_sessions: Close
+[0m16:55:06.211075 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.fact_standings"
+[0m16:55:06.211814 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_standings"} */
+alter table "motogp"."gold"."fact_standings" rename to "fact_standings__dbt_backup"
+[0m16:55:06.212857 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f543c50>]}
+[0m16:55:06.214065 [info ] [Thread-1 (]: 17 of 20 OK created sql table model gold.dim_sessions .......................... [[32mSELECT 491[0m in 0.09s]
+[0m16:55:06.214825 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.215810 [debug] [Thread-1 (]: Finished running node model.motogp_data_platform.dim_sessions
+[0m16:55:06.220389 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.fact_standings"
+[0m16:55:06.221503 [debug] [Thread-4 (]: Began running node model.motogp_data_platform.fact_session_classification
+[0m16:55:06.222080 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_standings"} */
+alter table "motogp"."gold"."fact_standings__dbt_tmp" rename to "fact_standings"
+[0m16:55:06.222776 [info ] [Thread-4 (]: 20 of 20 START sql table model gold.fact_session_classification ................ [RUN]
+[0m16:55:06.223530 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.motogp_data_platform.stg_rider_references, now model.motogp_data_platform.fact_session_classification)
+[0m16:55:06.224045 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.224512 [debug] [Thread-4 (]: Began compiling node model.motogp_data_platform.fact_session_classification
+[0m16:55:06.226329 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: COMMIT
+[0m16:55:06.230642 [debug] [Thread-4 (]: Writing injected SQL for node "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.231329 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.fact_standings"
+[0m16:55:06.232024 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: COMMIT
+[0m16:55:06.232744 [debug] [Thread-4 (]: Began executing node model.motogp_data_platform.fact_session_classification
+[0m16:55:06.239305 [debug] [Thread-2 (]: SQL status: COMMIT in 0.007 seconds
+[0m16:55:06.239787 [debug] [Thread-4 (]: Writing runtime sql for node "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.243253 [debug] [Thread-2 (]: Applying DROP to: "motogp"."gold"."fact_standings__dbt_backup"
+[0m16:55:06.244343 [debug] [Thread-2 (]: Using postgres connection "model.motogp_data_platform.fact_standings"
+[0m16:55:06.245158 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.245710 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_standings"} */
+drop table if exists "motogp"."gold"."fact_standings__dbt_backup" cascade
+[0m16:55:06.246306 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_session_classification"} */
+
+  
+    
+
+  create  table "motogp"."gold"."fact_session_classification__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    c.session_id,
+    s.event_id,
+    s.category_id,
+    c.rider_id,
+    c.team_name,
+    c.position,
+    c.points,
+    c.laps,
+    c.total_time,
+    c.gap
+from "motogp"."silver"."stg_session_classification" c
+left join "motogp"."gold"."dim_sessions" s
+    on c.session_id = s.session_id
+  );
+  
+[0m16:55:06.246947 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:55:06.249505 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.003 seconds
+[0m16:55:06.251165 [debug] [Thread-2 (]: On model.motogp_data_platform.fact_standings: Close
+[0m16:55:06.251828 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416caf6180>]}
+[0m16:55:06.252452 [info ] [Thread-2 (]: 18 of 20 OK created sql table model gold.fact_standings ........................ [[32mSELECT 153[0m in 0.10s]
+[0m16:55:06.253121 [debug] [Thread-2 (]: Finished running node model.motogp_data_platform.fact_standings
+[0m16:55:06.392018 [debug] [Thread-3 (]: SQL status: SELECT 176 in 0.201 seconds
+[0m16:55:06.396075 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_riders"
+[0m16:55:06.396422 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_riders"} */
+alter table "motogp"."gold"."dim_riders" rename to "dim_riders__dbt_backup"
+[0m16:55:06.397289 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.400047 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_riders"
+[0m16:55:06.400413 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_riders"} */
+alter table "motogp"."gold"."dim_riders__dbt_tmp" rename to "dim_riders"
+[0m16:55:06.401185 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:55:06.402416 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: COMMIT
+[0m16:55:06.402747 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_riders"
+[0m16:55:06.402986 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: COMMIT
+[0m16:55:06.406821 [debug] [Thread-3 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:55:06.409737 [debug] [Thread-3 (]: Applying DROP to: "motogp"."gold"."dim_riders__dbt_backup"
+[0m16:55:06.410333 [debug] [Thread-3 (]: Using postgres connection "model.motogp_data_platform.dim_riders"
+[0m16:55:06.410695 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.dim_riders"} */
+drop table if exists "motogp"."gold"."dim_riders__dbt_backup" cascade
+[0m16:55:06.413953 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.003 seconds
+[0m16:55:06.416229 [debug] [Thread-3 (]: On model.motogp_data_platform.dim_riders: Close
+[0m16:55:06.416876 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416ca2bf50>]}
+[0m16:55:06.417436 [info ] [Thread-3 (]: 19 of 20 OK created sql table model gold.dim_riders ............................ [[32mSELECT 176[0m in 0.25s]
+[0m16:55:06.417949 [debug] [Thread-3 (]: Finished running node model.motogp_data_platform.dim_riders
+[0m16:55:06.462169 [debug] [Thread-4 (]: SQL status: SELECT 9690 in 0.215 seconds
+[0m16:55:06.466207 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.466580 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_session_classification"} */
+alter table "motogp"."gold"."fact_session_classification" rename to "fact_session_classification__dbt_backup"
+[0m16:55:06.467413 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:55:06.470138 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.470455 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_session_classification"} */
+alter table "motogp"."gold"."fact_session_classification__dbt_tmp" rename to "fact_session_classification"
+[0m16:55:06.471195 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:55:06.472388 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: COMMIT
+[0m16:55:06.472701 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.472944 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: COMMIT
+[0m16:55:06.485579 [debug] [Thread-4 (]: SQL status: COMMIT in 0.012 seconds
+[0m16:55:06.488322 [debug] [Thread-4 (]: Applying DROP to: "motogp"."gold"."fact_session_classification__dbt_backup"
+[0m16:55:06.488979 [debug] [Thread-4 (]: Using postgres connection "model.motogp_data_platform.fact_session_classification"
+[0m16:55:06.489402 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: /* {"app": "dbt", "dbt_version": "1.12.0b3", "profile_name": "motogp_data_platform", "target_name": "dev", "node_id": "model.motogp_data_platform.fact_session_classification"} */
+drop table if exists "motogp"."gold"."fact_session_classification__dbt_backup" cascade
+[0m16:55:06.492264 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.002 seconds
+[0m16:55:06.493945 [debug] [Thread-4 (]: On model.motogp_data_platform.fact_session_classification: Close
+[0m16:55:06.494583 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a96f6be0-f5dd-4116-a219-a855a65b89fb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77416f543d40>]}
+[0m16:55:06.495113 [info ] [Thread-4 (]: 20 of 20 OK created sql table model gold.fact_session_classification ........... [[32mSELECT 9690[0m in 0.27s]
+[0m16:55:06.495614 [debug] [Thread-4 (]: Finished running node model.motogp_data_platform.fact_session_classification
+[0m16:55:06.497675 [debug] [MainThread]: On master: COMMIT
+[0m16:55:06.498221 [debug] [MainThread]: Using postgres connection "master"
+[0m16:55:06.498671 [debug] [MainThread]: On master: COMMIT
+[0m16:55:06.499049 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:55:06.507375 [debug] [MainThread]: SQL status: COMMIT in 0.008 seconds
+[0m16:55:06.507867 [debug] [MainThread]: On master: Close
+[0m16:55:06.508363 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:55:06.508770 [debug] [MainThread]: Connection 'model.motogp_data_platform.dim_sessions' was properly closed.
+[0m16:55:06.509036 [debug] [MainThread]: Connection 'model.motogp_data_platform.fact_standings' was properly closed.
+[0m16:55:06.509277 [debug] [MainThread]: Connection 'model.motogp_data_platform.dim_riders' was properly closed.
+[0m16:55:06.509510 [debug] [MainThread]: Connection 'model.motogp_data_platform.fact_session_classification' was properly closed.
+[0m16:55:06.509985 [info ] [MainThread]: 
+[0m16:55:06.510281 [info ] [MainThread]: Finished running 9 table models, 11 view models in 0 hours 0 minutes and 1.27 seconds (1.27s).
+[0m16:55:06.514022 [debug] [MainThread]: Command end result
+[0m16:55:06.634361 [debug] [MainThread]: Wrote artifact WritableManifest to /app/target/manifest.json
+[0m16:55:06.637167 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/target/semantic_manifest.json
+[0m16:55:06.639434 [debug] [MainThread]: Wrote artifact OsiDocument to /app/target/osi_document.json
+[0m16:55:06.645973 [debug] [MainThread]: Wrote artifact RunExecutionResult to /app/target/run_results.json
+[0m16:55:06.646275 [info ] [MainThread]: 
+[0m16:55:06.646521 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:55:06.646763 [info ] [MainThread]: 
+[0m16:55:06.647029 [info ] [MainThread]: Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=20
+[0m16:55:06.648395 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.2203887, "process_in_blocks": "65192", "process_kernel_time": 0.497838, "process_mem_max_rss": "143504", "process_out_blocks": "5456", "process_user_time": 3.091996}
+[0m16:55:06.648829 [debug] [MainThread]: Command `dbt run` succeeded at 16:55:06.648753 after 2.22 seconds
+[0m16:55:06.649080 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77417670afc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774173505040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x774173d931a0>]}
+[0m16:55:06.649314 [debug] [MainThread]: Flushing usage events
+[0m16:55:07.235741 [debug] [MainThread]: An error was encountered while trying to flush usage events

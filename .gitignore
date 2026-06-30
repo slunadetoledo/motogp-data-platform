@@ -1,7 +1,21 @@
 .env
+
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Local data and database volumes
 data/raw/
 postgres_data/
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
