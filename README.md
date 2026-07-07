@@ -34,6 +34,24 @@ docker compose exec postgres psql -U motogp_user -d motogp \
 El extractor carga la temporada `2024` por defecto cuando no se indica ningun
 parametro.
 
+En Linux, macOS o Git Bash:
+
+```bash
+./execute_load.sh
+```
+
+En Windows PowerShell:
+
+```powershell
+.\execute_load.ps1
+```
+
+Si PowerShell bloquea scripts por la politica de ejecucion local:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\execute_load.ps1
+```
+
 ```bash
 # Comprueba que dbt puede conectar con PostgreSQL
 docker compose exec app dbt debug --profiles-dir .

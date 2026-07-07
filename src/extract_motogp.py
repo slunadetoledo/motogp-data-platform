@@ -3,12 +3,15 @@ from datetime import datetime, timezone
 import argparse
 import json
 import os
+import time
 
 import requests
 from sqlalchemy import create_engine, text
 
 
 BASE_URL = "https://api.pulselive.motogp.com/motogp/v1"
+REQUEST_RETRIES = 4
+REQUEST_TIMEOUT = 30
 RAW_PATH = Path("data/raw/motogp")
 DEFAULT_YEAR = 2024  # Sin parametros, el extractor carga la temporada 2024.
 DEFAULT_RESOURCES = (
@@ -221,20 +224,44 @@ def get_db_url() -> str:
 
 
 def get_json(endpoint: str, params: dict | None = None):
-    response = requests.get(
-        f"{BASE_URL}/{endpoint}",
-        params=params,
-        timeout=30,
-        headers={"User-Agent": "motogp-data-platform"},
-    )
+    for attempt in range(1, REQUEST_RETRIES + 1):
+        try:
+            response = requests.get(
+                f"{BASE_URL}/{endpoint}",
+                params=params,
+                timeout=REQUEST_TIMEOUT,
+                headers={"User-Agent": "motogp-data-platform"},
+            )
 
-    if not response.ok:
-        print("URL:", response.url)
-        print("STATUS:", response.status_code)
-        print("BODY:", response.text[:1000])
+            if not response.ok:
+                print("URL:", response.url)
+                print("STATUS:", response.status_code)
+                print("BODY:", response.text[:1000])
 
-    response.raise_for_status()
-    return response.json()
+                if response.status_code < 500 or attempt == REQUEST_RETRIES:
+                    response.raise_for_status()
+
+                time.sleep(2**attempt)
+                continue
+
+            return response.json()
+        except (
+            requests.exceptions.ConnectionError,
+            requests.exceptions.SSLError,
+            requests.exceptions.Timeout,
+        ) as exc:
+            if attempt == REQUEST_RETRIES:
+                raise
+
+            wait_seconds = 2**attempt
+            print(
+                f"Request failed for {endpoint}: {exc}. "
+                f"Retrying in {wait_seconds} seconds "
+                f"({attempt}/{REQUEST_RETRIES})"
+            )
+            time.sleep(wait_seconds)
+
+    raise RuntimeError(f"Request failed for {endpoint}")
 
 
 def save_raw_file(name: str, payload) -> Path:
